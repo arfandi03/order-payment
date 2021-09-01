@@ -1,0 +1,78 @@
+<h1>Orders</h1>
+<form action="/order" method="GET" id="form-order">
+    <div class="input-group mb-3">
+        <input type="text" id="order" class="form-control" placeholder="Order No." aria-label="Order No." name="order"
+            value="<%= orderValue %>" aria-describedby="button-addon2">
+    </div>
+</form>
+
+<table class="table">
+    <tbody>
+        <% orders.forEach(order=> { %>
+            <tr>
+                <td>
+                    <span class="text-muted mt-2 d-flex">
+                        <%= order.order_no %>
+                        <p class="text-dark ml-2">
+                            Rp 
+                            <% if (order.types == "balance") { %>
+                                <%= (order.price * 0.5) + order.price %>
+                            <% } else { %>
+                                <%= order.price + 10000 %>
+                            <% } %>
+                        </p>
+                    </span>
+                    <b>
+                        <% if (order.types == "balance") { %>
+                            <%= order.price %> for <%= order.phone %>
+                        <% } else { %>
+                            <%= order.product %> that costs <%= order.price %>
+                        <% } %>
+                    </b>
+                </td>
+                <td>
+                    <div style="margin-top: 20px;">
+                        <% if (order.types == "product") { %>
+                            <% if (order.states == null) { %>
+                                <a href="/order/payment/<%= order.id %>" class="btn btn-sm btn-primary btn-block" type="button">Pay</a>
+                            <% } else { %>
+                                <%= order.shipping_code %>
+                            <% } %>
+                        <% } else { %>
+                            <% if (order.states == null) { %>
+                                <a href="/order/payment/<%= order.id %>" class="btn btn-sm btn-primary btn-block" type="button">Pay</a>
+                            <% } else if(order.states == "success") { %>
+                                <p class="text-success"><%= order.states %></p>
+                            <% } else if(order.states == "failed") { %>
+                                <p class="text-danger"><%= order.states %></p>
+                            <% } else if(order.states == "canceled") { %>
+                                <p class="text-warning"><%= order.states %></p>
+                            <% } %>
+                            
+                        <% } %>
+                    </div>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>
+
+<%- include ('../layouts/paginate') %>
+
+    <script>
+        setTimeout(function () {
+            $("#order").focus();
+        }, 1);
+
+        $("#order").on("focus", function () {
+            value = $(this).val();
+            $(this).val('');
+            setTimeout(function () {
+                $("#order").val(value);
+            }, 1);
+        });
+
+        $("#order").keyup(function () {
+            $("#form-order").submit();
+        });
+    </script>

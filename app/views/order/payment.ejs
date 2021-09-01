@@ -1,0 +1,8 @@
+<h1>Pay Your Order</h1>
+<form action="/order/payment/<%= order.id %>" method="POST">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="order" name="order" value="<%= order.order_no %>" readonly>
+        <label for="order">Order no.</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

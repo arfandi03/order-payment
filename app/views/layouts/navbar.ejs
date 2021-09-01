@@ -1,0 +1,18 @@
+<div class="d-flex bd-highlight mb-3 bg-light">
+  <div class="me-auto p-2 bd-highlight">
+    <div>
+      <a class="navbar-brand" href="/order">
+        <b>
+          <%= user.name %>
+        </b>
+        <span class="text-muted mt-2 d-flex">
+          <p class="text-danger mr-1">
+            <%= unpaid %>
+          </p>unpaid order
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="p-2 bd-highlight" style="align-self: center"><a class="nav-link" href="/order/balance">Prepaid Balance</a></div>
+  <div class="p-2 bd-highlight" style="align-self: center"><a class="nav-link" href="/order/product">Product Page</a></div>
+</div>

@@ -1,0 +1,17 @@
+<h1>Product Page</h1>
+<form action="/order/product" method="POST">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="product" name="product">
+        <label for="product">Product</label>
+    </div>
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Shipping Address" id="shipping_address" name="shipping_address"
+            style="height: 100px"></textarea>
+        <label for="shipping_address">Shipping Address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control number_only" id="price" name="price">
+        <label for="price">Price</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

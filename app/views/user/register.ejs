@@ -1,0 +1,19 @@
+<!-- Custom styles for this template -->
+<!-- <link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet"> -->
+<style>
+    .btn-outline-none:hover {
+        border: 1px solid #007bff;
+        color: #007bff;
+    }
+</style>
+<form class="form-signin" action="/register" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <label for="inputName" class="sr-only">Name</label>
+    <input type="text" id="inputName" class="form-control" name="name" placeholder="Name">
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="text" id="inputEmail" class="form-control" name="email" placeholder="Email address">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <a href="/login" class="btn btn-lg btn-outline-none btn-block" type="button">Login</a>
+</form>

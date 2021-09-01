@@ -1,0 +1,10 @@
+<p><%= order.order_no %></p>
+<p><%= order.price %></p>
+<p><%= order.types %></p>
+<% if(order.types == "balance") { %>
+<p>Your mobile phone number <%= order.phone %> will receive Rp.<%= order.price %></p>
+<% } else { %>
+<p><%= order.product %> that costs Rp <%= order.price %> will be shipped to : <%= order.shipping_address %> only after you pay</p>
+<% } %>
+
+<a href="/order/payment/<%= order.id %>" class="btn btn-lg btn-primary btn-block" type="button">PAY</a>

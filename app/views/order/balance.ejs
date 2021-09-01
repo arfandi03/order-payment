@@ -1,0 +1,17 @@
+<h1>Prepaid Balance</h1>
+<form action="/order/balance" method="POST">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="phone" name="phone">
+        <label for="phone">Mobile number</label>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" id="price" name="price">
+            <option value="">--SELECT ONE--</option>
+            <option value="10000">Rp10.000</option>
+            <option value="50000">Rp50.000</option>
+            <option value="100000">Rp100.000</option>
+        </select>
+        <label for="price">Price</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
